@@ -1,10 +1,8 @@
-import Card from "@mui/material/Card/Card";
-import CardContent from "@mui/material/CardContent/CardContent";
-import CardMedia from "@mui/material/CardMedia/CardMedia";
 import React, { useState, useEffect } from "react";
+import { Product } from "./Product";
 
 // type cannot be extended, interface can be
-interface Product {
+export interface IProduct {
 	brand: string;
 	category: string;
 	description: string;
@@ -21,7 +19,7 @@ interface Product {
 
 export const ProductList = () => {
 	// useState<Product[] | []> : We would have an array of products or an empty array
-	const [products, setProducts] = useState<Product[] | []>([]);
+	const [products, setProducts] = useState<IProduct[] | []>([]);
 
 	useEffect(() => {
 		loadData().then(setProducts);
@@ -29,7 +27,7 @@ export const ProductList = () => {
 
 	const loadData = async () => {
 		const response = await fetch("https://dummyjson.com/products");
-		const data: Product[] = (await response.json()).products;
+		const data: IProduct[] = (await response.json()).products;
 		console.log("Log : ");
 		console.log(data);
 		return data;
@@ -37,28 +35,9 @@ export const ProductList = () => {
 
 	return (
 		<div>
-			<div className="status">
 				{products.map((product) => (
-					/*This is a React component created by React
-                See also React.Fragment*/
-
-					<Card key={product.id}>
-						<CardMedia
-							component="img"
-							height="140"
-							image={product.thumbnail}
-							alt="green iguana"
-						/>
-						<CardContent>
-							<p>{product.title}</p>
-							<p>{product.description}</p>
-							{/*String interpolation */}
-							{/*String literal*/}
-							<p>{`${product.price}€`}</p>
-						</CardContent>
-					</Card>
+					<Product key={product.id} product={product} />
 				))}
-			</div>
 		</div>
 	);
 };
