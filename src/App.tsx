@@ -8,12 +8,13 @@ import { ProductView } from './components/product-view/product-view';
 
 const Header = styled.header`
   display: block;
-  width: 100%;
   background-color: aquamarine;
   padding: 1rem;
-`
-
-const H1 = styled.header`
+  `
+  
+  const H1 = styled.header`
+  box-sizing: border-box;
+  overflow: hidden;
   font-size: 1.8rem;
   color: #333;
   font-weight: bold;

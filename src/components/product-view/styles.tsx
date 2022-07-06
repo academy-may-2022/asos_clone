@@ -3,9 +3,14 @@ import styled from '@emotion/styled'
 import Card from '@mui/material/Card/Card';
 
 export const CardContainer = styled(Card)`
-    margin: 1rem;
+    margin: 1rem auto;
+    max-width: 1000px;
     padding: 0;
     display: flex;
+
+    @media screen and (max-width: 1040px) {
+        margin: 1rem;
+    }
 `
 
 export const Img = styled.img`
