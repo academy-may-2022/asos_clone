@@ -5,10 +5,6 @@ export const ProductList = () => {
     
 useEffect(() => {
   loadData();
-
-  // return () => {
-  //   second
-  // }
 }, [])
 
 
