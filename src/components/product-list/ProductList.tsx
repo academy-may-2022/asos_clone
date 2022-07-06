@@ -1,30 +1,28 @@
 
 import React, { useState, useEffect } from 'react';
+
+import { ProductsAPI } from '../../api/products'
+
 import { Product } from '../product/product';
-import type{ IProduct } from '../product/product';
+import type { IProduct } from '../product/types';
+import { Container } from './styles'
 
-
+const productsAPI = new ProductsAPI()
 
 export const ProductList = () => {
     const [products, setProducts] = useState<IProduct[] | []>([]);
 
     useEffect(() => {
-        loadData().then(setProducts);
+        productsAPI.getProducts().then(setProducts);
     }, [])
-
-
-    const loadData = async () => {
-        const response = await fetch("https://dummyjson.com/products");
-        const data: IProduct[] = (await response.json()).products;
-        return data;
-    }
 
     const mapProduct = (product: IProduct) => (
         <Product key={product.id} product={product} />
     )
 
-
     return (
-        <div className="status">{products.map(mapProduct)}</div>
+        <Container>
+            {products.map(mapProduct)}
+        </Container>
     );
 };

@@ -1,31 +1,14 @@
-import Card from '@mui/material/Card/Card';
+import React from 'react';
 import CardContent from '@mui/material/CardContent/CardContent';
 import CardMedia from '@mui/material/CardMedia/CardMedia';
-import React from 'react';
+import { Link } from 'react-router-dom'
 
-
-export interface IProduct {
-    brand: string;
-    category: string;
-    description: string;
-    discountPercentage: number;
-    id: number;
-    images: string[];
-    price: number;
-    rating: number;
-    stock: number;
-    thumbnail: string;
-    title: string;
-}
-
-type productProps = {product:IProduct}
-
+import type { productProps } from './types'
+import { CardContainer } from './styles'
 
 export const Product = ({product}: productProps) => {
-
     return (
-
-        <Card>
+        <CardContainer>
             <CardMedia
                 component="img"
                 height="140"
@@ -33,12 +16,10 @@ export const Product = ({product}: productProps) => {
                 alt="green iguana"
             />
             <CardContent>
-                <p>{product.title}</p>
-                <p>{product.description}</p>
-                <p>{`${product.price}€`}</p>
+            <Link to={`/product/${ product.id }`}><h4>{product.title}</h4></Link>
+            <p>{product.description}</p>
+            <p>{`${product.price}€`}</p>
             </CardContent>
-
-        </Card>
-
+        </CardContainer>
     )
 }
