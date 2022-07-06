@@ -1,3 +1,6 @@
+import Card from '@mui/material/Card/Card';
+import CardContent from '@mui/material/CardContent/CardContent';
+import CardMedia from '@mui/material/CardMedia/CardMedia';
 import React, {useState, useEffect} from 'react';
 
 // type cannot be extended, interface can be
@@ -38,7 +41,25 @@ export const ProductList = () => {
         <div>
 
             <div className="status">{ products.map(product => (
-                    <p>{product.title}</p>
+                /*This is a React component created by React
+                See also React.Fragment*/
+
+
+                <Card>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image={product.thumbnail}
+                        alt="green iguana"
+                    />
+                    <CardContent>
+                            <p>{product.title}</p>
+                            <p>{product.description}</p>
+                            {/*String interpolation */}
+                            {/*String literal*/ }
+                            <p>{`${product.price}€`}</p>
+                    </CardContent>
+                </Card>
                 )
                 )}</div>
 
