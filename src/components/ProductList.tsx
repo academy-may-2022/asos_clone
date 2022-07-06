@@ -37,7 +37,10 @@ export const ProductList = () => {
     return (
         <div>
 
-            <div className="status">This is a Product Component</div>
+            <div className="status">{ products.map(product => (
+                    <p>{product.title}</p>
+                )
+                )}</div>
 
         </div>
 
