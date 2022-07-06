@@ -38,13 +38,8 @@ export const ProductList = () => {
 
 
     return (
-        <div>
-
-            <div className="status">{ products.map(product => (
-                /*This is a React component created by React
-                See also React.Fragment*/
-
-
+        <div className="status">
+            { products.map(product => (
                 <Card>
                     <CardMedia
                         component="img"
@@ -55,15 +50,10 @@ export const ProductList = () => {
                     <CardContent>
                             <p>{product.title}</p>
                             <p>{product.description}</p>
-                            {/*String interpolation */}
-                            {/*String literal*/ }
                             <p>{`${product.price}€`}</p>
                     </CardContent>
                 </Card>
-                )
-                )}</div>
-
+            ))}
         </div>
-
     );
 };
