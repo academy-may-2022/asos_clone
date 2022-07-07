@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { ProductList } from './components/ProductList';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Product } from './components/Product';
+import { ProductView } from './components/ProductView';
 
 function App() {
   
@@ -12,6 +12,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<ProductList />}></Route>
 					<Route path="/product" element={<ProductList />}></Route>
+					<Route path="/product/:id" element={<ProductView />}></Route>
 				</Routes>
 			</BrowserRouter>
 		</div>
