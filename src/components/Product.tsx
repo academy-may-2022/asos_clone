@@ -10,7 +10,7 @@ interface Props {
 
 export const Product = ({product}: Props) => {
     return <Link to={`/products/${product.id}`}>
-        <Card>
+        <Card sx={{ width: '100%' }}>
             <CardMedia
                 component="img"
                 height="140"
