@@ -13,12 +13,17 @@ export const ProductList = () => {
     const [products, setProducts] = useState<IProduct[] | []>([]);
 
     useEffect(() => {
-        productsAPI.getProducts().then(setProducts);
+        productsAPI.getProducts().then((products) => { 
+            console.log("Hey")
+            setProducts(products)
+         });
     }, [])
 
     const mapProduct = (product: IProduct) => (
         <Product key={product.id} product={product} />
     )
+
+    console.log("products", products)
 
     return (
         <Container>
