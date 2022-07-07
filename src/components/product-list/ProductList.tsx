@@ -14,16 +14,13 @@ export const ProductList = () => {
 
     useEffect(() => {
         productsAPI.getProducts().then((products) => { 
-            console.log("Hey")
             setProducts(products)
          });
-    }, [])
+    }, [products])
 
     const mapProduct = (product: IProduct) => (
         <Product key={product.id} product={product} />
     )
-
-    console.log("products", products)
 
     return (
         <Container>

@@ -1,13 +1,10 @@
-import { act, render, screen } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { ProductList } from "./ProductList";
 import { fakeProduct } from "../../mocks/fake-data"
-
+import { BrowserRouter } from "react-router-dom";
 
 test('retrieve products', async () => {
-   await act(async() => {
-        render(<ProductList />);
-    });
-    // await (new Promise((resolve) => { setTimeout(resolve, 3000) }))
-    const linkElement = screen.getByText(fakeProduct.title);
+    render(<BrowserRouter><ProductList /></BrowserRouter>);
+    const linkElement = await screen.findByText(fakeProduct.title);
     expect(linkElement).toBeInTheDocument();
 })
