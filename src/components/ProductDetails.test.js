@@ -11,11 +11,11 @@ test('retrieves product 1', async () => {
                 <Route
                     exact
                     path="/products/:id"
-                    component={() => (
-                        <ProductDetails />
-                    )}
+                    element={<ProductDetails />}
                 />
             </Routes>
         </MemoryRouter>
     );
+
+    expect(await screen.findByText(/iStone 7/i)).toBeInTheDocument();
 })

@@ -23,20 +23,6 @@ export const ProductDetails = () => {
         return <h1>Loading...</h1>;
     }
 
-    /*
-        brand: string;
-        category: string;
-        description: string;
-        discountPercentage: number;
-        id: number;
-        // Alternative way: Array<string>
-        images: string[];
-        price: number;
-        rating: number;
-        stock: number;
-        thumbnail: string;
-        title: string;
-     */
     return <Grid
             container
             justifyContent="center"
