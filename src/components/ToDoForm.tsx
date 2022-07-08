@@ -1,4 +1,7 @@
 import React, { useRef } from "react";
+import Input from "@mui/material/Input";
+import IconButton from "@mui/material/IconButton";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 interface ToDoFormProps {
 	todo: string;
@@ -15,8 +18,7 @@ export const ToDoForm = ({ todo, setTodo, handleAdd }: ToDoFormProps) => {
 				inputRef.current?.blur();
 			}}
 		>
-			<label htmlFor="new-to-do-input">new task</label>
-			<input
+			<Input
 				ref={inputRef}
 				type="text"
 				id="new-to-do-input"
@@ -25,7 +27,9 @@ export const ToDoForm = ({ todo, setTodo, handleAdd }: ToDoFormProps) => {
 				onChange={(e) => setTodo(e.target.value)}
 				autoComplete="off"
 			/>
-			<button type="submit">+</button>
+			<IconButton type="submit">
+				<AddCircleIcon />
+			</IconButton>
 		</form>
 	);
 };
